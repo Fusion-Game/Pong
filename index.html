@@ -100,39 +100,3 @@
   </script>
 </body>
 </html>
-// Add event listeners to the paddles
-paddles[0].addEventListener("keydown", function(event) {
-  if (event.keyCode === 38) {
-    this.y -= 5;
-  } else if (event.keyCode === 40) {
-    this.y += 5;
-  }
-});
-
-paddles[1].addEventListener("keydown", function(event) {
-  if (event.keyCode === 87) {
-    this.y -= 5;
-  } else if (event.keyCode === 83) {
-    this.y += 5;
-  }
-});
-
-// Keep the paddles within the bounds of the screen
-function checkPaddleBounds() {
-  for (var i = 0; i < paddles.length; i++) {
-    if (paddles[i].y < 0) {
-      paddles[i].y = 0;
-    } else if (paddles[i].y >= canvas.height - paddles[i].height) {
-      paddles[i].y = canvas.height - paddles[i].height;
-    }
-  }
-}
-
-// Update the game state
-function update() {
-  // ...
-
-  // Check the paddle bounds
-  checkPaddleBounds();
-}
-
